@@ -7,6 +7,7 @@ import initCornerstoneTools from './initCornerstoneTools.js';
 import measurementServiceMappingsFactory from './utils/measurementServiceMappings/measurementServiceMappingsFactory';
 import dicomSRModule from './tools/modules/dicomSRModule';
 import srModuleId from './tools/id';
+import enableReferenceLines from './enableReferenceLines';
 
 /**
  *
@@ -96,6 +97,8 @@ export default function init({ servicesManager, configuration }) {
 
   /* Measurement Service */
   _connectToolsToMeasurementService(MeasurementService);
+
+  enableReferenceLines();
 
   /* Add extension tools configuration here. */
   const internalToolsConfig = {
