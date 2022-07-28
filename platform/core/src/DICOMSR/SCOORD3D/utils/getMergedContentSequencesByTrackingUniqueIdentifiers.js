@@ -19,13 +19,14 @@ const getMergedContentSequencesByTrackingUniqueIdentifiers = MeasurementGroups =
       console.warn(
         'No Tracking Unique Identifier, skipping ambiguous measurement.'
       );
+      return mergedContentSequencesByTrackingUniqueIdentifiers;
     }
 
     const trackingUniqueIdentifier = TrackingUniqueIdentifierItem.UID;
 
     if (
       mergedContentSequencesByTrackingUniqueIdentifiers[
-        trackingUniqueIdentifier
+      trackingUniqueIdentifier
       ] === undefined
     ) {
       // Add the full ContentSequence
