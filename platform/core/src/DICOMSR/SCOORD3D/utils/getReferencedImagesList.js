@@ -10,7 +10,7 @@ const getReferencedImagesList = ImagingMeasurementReportContentSequence => {
       CodeNameCodeSequenceValues.ImageLibrary
   );
 
-  if (!ImageLibrary.ContentSequence) {
+  if (!ImageLibrary || !ImageLibrary.ContentSequence) {
     return referencedImages;
   }
 
