@@ -47,7 +47,9 @@ function StudyBrowser(props) {
                     // Study
                     StudyInstanceUID={StudyInstanceUID} // used by drop
                     // Thumb
-                    altImageText={altImageText}
+                    altImageText={altImageText || (SeriesDescription
+                      ? SeriesDescription.split(' ').map(x => x[0] ? x[0].toUpperCase() : '').join('')
+                      : '')}
                     imageId={imageId}
                     derivedDisplaySetsNumber={derivedDisplaySetsNumber}
                     displaySetInstanceUID={displaySetInstanceUID} // used by drop
@@ -74,7 +76,7 @@ function StudyBrowser(props) {
   );
 }
 
-const noop = () => {};
+const noop = () => { };
 
 StudyBrowser.propTypes = {
   studies: PropTypes.arrayOf(

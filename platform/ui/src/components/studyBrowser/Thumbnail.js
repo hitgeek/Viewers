@@ -169,6 +169,7 @@ function Thumbnail(props) {
     onMouseDown,
     supportsDrag,
     showProgressBar,
+    SeriesNumber
   } = props;
 
   const [stackPercentComplete, setStackPercentComplete] = useState(0);
@@ -204,12 +205,12 @@ function Thumbnail(props) {
       displaySetInstanceUID,
       type: 'thumbnail', // Has to match `dropTarget`'s type
     },
-    canDrag: function(monitor) {
+    canDrag: function (monitor) {
       return supportsDrag;
     },
   });
 
-  const hasImage = imageSrc || imageId;
+  const hasImage = imageSrc || imageId && (SeriesNumber != 99);
   const hasAltText = altImageText !== undefined;
 
   return (
@@ -242,7 +243,7 @@ function Thumbnail(props) {
   );
 }
 
-const noop = () => {};
+const noop = () => { };
 
 Thumbnail.propTypes = {
   supportsDrag: PropTypes.bool,
